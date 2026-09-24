@@ -1,0 +1,99 @@
+title,body,labels,assignees,milestone
+"Complete M0: Environment Setup (WSL2, VM, or macOS)","Set up a verified, working Linux command-line environment before Module 1 begins.
+
+Full instructions: `modules/week-00-environment-setup-prerequisites.md`
+
+- [ ] I can open a terminal and confirm I am running inside a real Linux environment — `uname -a` reports `Linux`, not `Darwin` or a Windows-native result.
+- [ ] `cat /etc/os-release` prints a recognized Linux distribution name and version.
+- [ ] I have a non-root user account and can run `sudo` successfully.
+- [ ] `git --version` and `curl --version` both return a version number without error.
+- [ ] I have a text editor available inside the Linux environment and can open and save a file with it.
+- [ ] If I used a Virtual Machine, I have taken a snapshot of the clean install.
+- [ ] If I am on macOS, I understand that Terminal.app alone is not sufficient for this course, and I am working inside a VM or Linux container.
+- [ ] I can explain, in my own words, the difference between my host operating system and the Linux environment I just set up.","training,module,m0",,Week 0
+"Complete M1: Linux Fundamentals — Kernel, Shell, and Distributions","Understand what happens between typing a command and seeing output — the roles of the kernel, shell, and a distribution.
+
+Full instructions: `modules/week-01-linux-fundamentals-cli-basics.md` (M1 section)
+
+- [ ] I can explain, in my own words, the difference between the kernel, the shell, and a distribution.
+- [ ] I can run `uname -a` and `cat /etc/os-release` and correctly identify my kernel version and distro from the output.","training,module,m1",,Week 1
+"Complete M2: CLI Basics — Command Syntax, Pipes, and Redirection","Construct commands with options/arguments, chain them with pipes, redirect output, and find help without leaving the terminal.
+
+Full instructions: `modules/week-01-linux-fundamentals-cli-basics.md` (M2 section)
+
+- [ ] I can construct a command using an option and an argument without looking up the syntax.
+- [ ] I can chain two commands together with `|` and explain what data flows between them.
+- [ ] I understand the difference between `>` and `>>` and can state a scenario where using the wrong one would cause data loss.
+- [ ] I can open and close a `man` page, and can use `--help` as a faster alternative for a quick reminder.
+- [ ] I can use Tab-completion to complete a partially typed path.","training,module,m2",,Week 1
+"Complete M3: Filesystem Navigation — FHS, Paths, and Directory Structure","Navigate the filesystem with absolute and relative paths, create nested directory structures, and explain the FHS layout.
+
+Full instructions: `modules/week-02-filesystem-navigation-file-editing.md` (M3 section)
+
+- [ ] I can state the purpose of `/etc`, `/var`, `/home`, and `/usr` without looking it up.
+- [ ] I can navigate to a location using an absolute path and a different location using a relative path, and explain the difference.
+- [ ] I can create a nested directory structure with a single `mkdir -p` command.
+- [ ] I can use `find` to locate files by name pattern in a directory tree.","training,module,m3",,Week 2
+"Complete M4: Viewing & Editing Files — Streams, Search, and In-Place Editing","View, follow, search, and edit file contents directly from the terminal.
+
+Full instructions: `modules/week-02-filesystem-navigation-file-editing.md` (M4 section)
+
+- [ ] I can explain when to use `cat` vs. `less` vs. `tail -f` to view a file.
+- [ ] I can use `grep` (with `-i` when needed) to search a file's contents for a pattern.
+- [ ] I can open, edit, save, and exit a file using `nano`.
+- [ ] I produced the filtered log excerpt called for by this module's lab.","training,module,m4",,Week 2
+"Complete M5: Users, Permissions, and Ownership","Read and change file permissions and ownership, and understand `sudo`-based privilege escalation.
+
+Full instructions: `modules/week-03-permissions-package-management.md` (M5 section)
+
+- [ ] I can read a permission string like `-rwxr-xr--` and state exactly who can read, write, and execute the file.
+- [ ] I can change a file's permissions using both symbolic (`u+x`) and numeric (`755`) `chmod` syntax.
+- [ ] I can change a file's owner and group with `chown`/`chgrp`.
+- [ ] I can explain why `sudo <command>` is preferred over logging in as root.","training,module,m5",,Week 3
+Complete M6: Package Management — Installing Software Safely,"Install, verify, and remove software using both a system package manager and a language-level one.
+
+Full instructions: `modules/week-03-permissions-package-management.md` (M6 section)
+
+- [ ] I can install, verify, and remove a package using `apt`.
+- [ ] I can install, verify, and remove a package using `pip`.
+- [ ] I can explain when to use a system package manager vs. a language-level one.","training,module,m6",,Week 3
+Complete M7: Networking & Resource Monitoring,"Transfer files to/from a remote machine, check network reachability, and confirm disk/memory headroom.
+
+Full instructions: `modules/week-04-networking-processes-shell-scripting.md` (M7 section)
+
+- [ ] I can use `curl` to check whether a service is reachable and `scp` to transfer a file to/from a remote host.
+- [ ] I can use `ss` to list listening ports and `df -h`/`free -h` to check disk and memory headroom.","training,module,m7",,Week 4
+"Complete M8: Processes, systemd & Cron","List/terminate processes, control a systemd service, read its logs, and schedule a recurring cron job.
+
+Full instructions: `modules/week-04-networking-processes-shell-scripting.md` (M8 section)
+
+- [ ] I can list running processes with `ps` and terminate one with `kill`.
+- [ ] I can check, start, and enable a systemd service with `systemctl`, and read its logs with `journalctl`.
+- [ ] I can write and confirm a working `crontab` entry.","training,module,m8",,Week 4
+"Complete M9: Shell Scripting — Control Flow, Functions, and Exit Codes","Write a Bash script with conditionals, loops, functions, and correct exit-code handling.
+
+Full instructions: `modules/week-04-networking-processes-shell-scripting.md` (M9 section)
+
+- [ ] I can write a Bash script using `if`, `for`/`while`, and a function.
+- [ ] I can explain what `$?` and `exit <code>` do and why a caller (cron, systemd, Kubernetes) depends on them.
+- [ ] I tested my M9 script against both a valid and a deliberately invalid input, per the implement → test-happy-path → test-failure-path pattern.","training,module,m9",,Week 4
+Complete M13: Security & Secrets Hygiene,"Refactor a script to remove a hardcoded credential in favor of an environment variable, and configure `.gitignore` correctly.
+
+Full instructions: `modules/week-05-security-secrets-hygiene.md`
+
+- [ ] I can explain, in my own words, why a hardcoded credential is a security risk even in a script I never intend to share.
+- [ ] I refactored my M9 script to read a credential from an environment variable instead of hardcoding it.
+- [ ] My refactored script fails loudly with a clear message when the required environment variable is unset.
+- [ ] I created a `.env` (real values) and a `.env.example` (placeholder values), and a `.gitignore` that excludes only the real `.env`.
+- [ ] I confirmed with `git status` that `.env` is excluded from version control and `.env.example` is not.
+- [ ] I can explain why a credential that was ever committed to Git history should be rotated, not just deleted from the current file.","training,module,m13",,Week 5
+Complete Capstone: End-to-End Automation Pipeline,"Build a scheduled, idempotent Bash pipeline that validates incoming CSVs, routes them to processed/rejected, logs the result, and handles its credential securely.
+
+Full instructions: `modules/capstone-end-to-end-pipeline.md`
+
+- [ ] My pipeline script validates incoming CSVs and routes them to `processed/` or `rejected/` based on column count.
+- [ ] Running the script twice in a row with no new files produces no errors and no duplicate log entries (idempotent).
+- [ ] The pipeline reads its credential from an environment variable (via a sourced `.env`), never hardcoded.
+- [ ] `.gitignore` excludes `.env`, `pipeline.log`, `incoming/`, `processed/`, and `rejected/`, confirmed with `git status`.
+- [ ] I scheduled the pipeline with cron and confirmed, from `pipeline.log`, that it ran automatically on schedule — not only when triggered by hand.
+- [ ] I ran the pipeline against a deliberately malformed file and confirmed the failure path (validation → `rejected/` → logged) works as intended.","training,capstone",,Capstone
