@@ -45,6 +45,12 @@ sense._
 
 _Tools/versions needed before setup._
 
+## Project scope
+
+_What this project does, and — just as important — what it explicitly
+does NOT do. Name the real-world factors or caveats a reader needs before
+acting on this project's output._
+
 ### Local setup
 
 _(Typically instructor-only — see the note at the end of this
@@ -227,6 +233,9 @@ project-name/
 
 _Links to deeper docs elsewhere in the repo, if any exist._
 
+## Grading Rubric
+_ information here about how the trainees will be graded_
+
 ## Checkpoint (self-assessed)
 
 _(Optional — delete this section for a non-training deliverable.) A
@@ -241,8 +250,4 @@ required._
 each item. **Cohort version:** the checklist items only, self-assessed
 by the trainee with no answers supplied.
 
-## Project scope
 
-_What this project does, and — just as important — what it explicitly
-does NOT do. Name the real-world factors or caveats a reader needs before
-acting on this project's output._

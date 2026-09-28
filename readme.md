@@ -7,7 +7,7 @@
 
 ## Replication Steps
 ### To be completed in Clause Web application
-1. Run product-designer to describe the context of the requirements. Use produc-designer.md as reference for the prompt.
+1. Run product-designer to describe the context of the requirements. Use product-designer.md as reference for the prompt.
 2. Use the output from product-designer as input to run solution-architect to create arch-docs. Save the arch-docs in nexus project under /docs directory.
 
 ### To be completed in Claude Code
