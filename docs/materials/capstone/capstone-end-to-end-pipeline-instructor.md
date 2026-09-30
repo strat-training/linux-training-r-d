@@ -348,6 +348,6 @@ deliberate scope boundary, not an omission: the architecture doc's
 fuller vision (`docs/arch-docs/linux-training.md` §5) additionally
 describes containerizing the pipeline (M10), scheduling it as a
 Kubernetes CronJob (M11), and feeding its logs into a grep/awk
-observability report (M12) — none of which `modules/` currently teaches.
+observability report (M12) — none of which `docs/materials/modules/` currently teaches.
 If the course's module scope grows to include M10–M12, this capstone
 should be revisited rather than assumed to already cover them.
