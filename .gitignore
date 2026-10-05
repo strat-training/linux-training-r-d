@@ -1,3 +1,5 @@
 .claude
 graphify-out/
-docs/materials/modules
+docs/materials/
+docs/arch-docs
+docs/template

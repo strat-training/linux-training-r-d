@@ -16,10 +16,10 @@ This template produces two variants of the same document:
 
 Fill in one Markdown file per variant from the sections below; do not
 merge both into a single file with hidden/collapsed sections. The
-current capstone's filled-in output lives in `docs/materials/capstone/`
-— `docs/materials/capstone/capstone-end-to-end-pipeline-instructor.md` and
-`docs/materials/capstone/capstone-end-to-end-pipeline-cohort.md`, with shared test
-fixtures in `docs/materials/capstone/mock-data/`. Use those two files together as the
+current capstone's filled-in output lives in `capstone/` at the repo
+root — `capstone/capstone-end-to-end-pipeline-instructor.md` and
+`capstone/capstone-end-to-end-pipeline-cohort.md`, with shared test
+fixtures in `capstone/mock-data/`. Use those two files together as the
 worked example of this template; `modules/capstone-end-to-end-pipeline.md`
 no longer exists — it was superseded by this split.
 
@@ -69,8 +69,8 @@ cd <project-directory>
 script. **Cohort version:** typically omits this subsection entirely,
 keeping the doc as pure spec (what to build and why) rather than a build
 guide. See the current capstone's two files —
-`docs/materials/capstone/capstone-end-to-end-pipeline-cohort.md` vs.
-`docs/materials/capstone/capstone-end-to-end-pipeline-instructor.md` — for the worked
+`capstone/capstone-end-to-end-pipeline-cohort.md` vs.
+`capstone/capstone-end-to-end-pipeline-instructor.md` — for the worked
 precedent: the instructor version keeps this subsection because it lets
 an instructor actually walk the build while validating a submission; the
 cohort version drops it so it isn't handed back as a build guide.
@@ -91,7 +91,8 @@ _Then 2-4 bullets: what does this project help its intended user do?_
 
 _Numbered list of the concrete, testable requirements this build must
 satisfy — checkable conditions, not aspirational goals. Pull these from
-the capstone's own spec/module file (e.g. `docs/materials/capstone/capstone-end-to-end-pipeline-cohort.md`'s "Requirements / acceptance criteria" section); don't invent
+the capstone's own spec/module file (e.g. `modules/
+capstone-end-to-end-pipeline.md`'s "Requirements" section); don't invent
 new ones or drop existing ones. Include at least one requirement that
 names how failure is proven, not just success — see "Validation &
 testing" below._
@@ -164,7 +165,7 @@ describe._
 ## Technology stack
 
 _Table of the actual tools this capstone uses. Every row must trace to a
-module the cohort has actually completed — check `docs/materials/modules/` and the
+module the cohort has actually completed — check `modules/` and the
 architecture doc's capstone section (`docs/arch-docs/
 linux-training.md` §5) before writing a row. Do not include a row for a
 tool the course hasn't taught yet (e.g. Docker, Kubernetes, or a
@@ -250,3 +251,4 @@ each item. **Cohort version:** the checklist items only, self-assessed
 by the trainee with no answers supplied.
 
 
+/
