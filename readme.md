@@ -11,7 +11,7 @@
 2. Use the output from product-designer as input to run solution-architect to create arch-docs. Save the arch-docs in nexus project under /docs directory.
 
 ### To be completed in Claude Code
-1. Run /scaffold command. Use /knowledge/prompts/dev/scafold-prompt.md as reference to create the curriculum modules. Read the output and implement EPAV. For better result, add document reference or research files in prompts/dev/references
+1. Run /scaffold command. Use /knowledge/prompts/dev-prompts/scafold-prompt.md as reference to create the curriculum modules. Read the output and implement EPAV. For better result, add document reference or research files in prompts/dev-prompts/references
 2. To create the training to do list that can be added in a git project, run /dev-tasks-planner.md
-3. To create the training rubricks run /create-rubrics. For sample prompt see /knowledge/prompts/dev/grading-rubric-prompt.md
+3. To create the training rubricks run /create-rubrics. For sample prompt see /knowledge/prompts/dev-prompts/grading-rubric-prompt.md
 4.

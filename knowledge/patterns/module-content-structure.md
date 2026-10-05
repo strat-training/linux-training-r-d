@@ -1,7 +1,7 @@
 # Pattern: Content-Pack File Structure
 
-Each content-pack file (`modules/week-XX-<topic-slug>.md`) follows this
-section structure. See `modules/week-01-linux-fundamentals-cli-basics.md`
+Each content-pack file (`docs/materials/modules/week-XX-<topic-slug>.md`) follows this
+section structure. See `docs/materials/modules/week-01-linux-fundamentals-cli-basics.md`
 for a filled-in example.
 
 ```
@@ -47,13 +47,13 @@ for a filled-in example.
   naming a command/flag/file/path in prose (e.g., "the `ls` command"),
   not for showing something the trainee is meant to type or paste.
 - **Never reference this repo's own internal file paths in
-  trainee-facing content.** Files under `modules/` are read by trainees,
+  trainee-facing content.** Files under `docs/materials/modules/` are read by trainees,
   who have no access to this project's `docs/`, `knowledge/`, or
   `graphify-out/` directories. A "no source" `**Note:**` should say
   *"No cited source material exists for this topic in the research
   gathered for this course"* — never name where that was checked (e.g.
   never write "`knowledge/references/` has no entry for this"). This
-  rule applies only to `modules/*.md`; internal docs like this pattern
+  rule applies only to `docs/materials/modules/*.md`; internal docs like this pattern
   file or `knowledge/rules/arch-summary.md` may reference paths freely,
   since only course authors read those.
 - **Link syntax:** always use inline links, `[Label](url)`. Never use
@@ -67,5 +67,5 @@ for a filled-in example.
   differs — don't pad it with rows that are identical on both.
 - Every content-pack file ends in a self-assessed Checkpoint — a short
   checklist the trainee ticks off themselves, not a graded quiz.
-- Files are flat, one per content pack, directly under `modules/` — never
+- Files are flat, one per content pack, directly under `docs/materials/modules/` — never
   nested in a per-module folder, never named `README.md`.

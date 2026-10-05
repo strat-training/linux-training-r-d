@@ -20,7 +20,7 @@ existing "Requirements / acceptance criteria" section and an existing
   scope, stack, and architecture for the trainee; planning wasn't the
   trainee's own work to grade. **Exclude Tier 1** and use the
   *renormalized* weights below. This is the case for this course's
-  current capstone — `capstone/capstone-end-to-end-pipeline-cohort.md`
+  current capstone — `docs/materials/capstone/capstone-end-to-end-pipeline-cohort.md`
   already has both a "Requirements / acceptance criteria" section and a
   "Project architecture" section.
 - **If neither exists** (a hypothetical future target with no
@@ -60,8 +60,8 @@ row.
 
 - **Source**: the target's own existing `## Documentation` section
   (today, only the capstone has one — see
-  `capstone/capstone-end-to-end-pipeline-cohort.md` /
-  `capstone/capstone-end-to-end-pipeline-instructor.md`).
+  `docs/materials/capstone/capstone-end-to-end-pipeline-cohort.md` /
+  `docs/materials/capstone/capstone-end-to-end-pipeline-instructor.md`).
 - **What it grades**: whether the trainee actually produced and
   accumulated real evidence as they built — real `pipeline.log` output
   from both the happy-path and failure-path runs, the real crontab
