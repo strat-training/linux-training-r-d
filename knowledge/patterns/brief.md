@@ -1,125 +1,79 @@
-# Capstone Brief
+# M01 — Getting Started with Terraform Brief
 
-**Hours:** 4 · **Builds on:** everything from Stages 1–8, directly extending the Stage 7/8 Tasks API
-pattern onto resources of your own.
+**Stage:** 1 of 9 · **Builds on:** — (course entry point) · **Feeds into:** M02, M03, M08, M09
 
 ## Objective
 
-Build a small, tested, documented REST API end to end, on your own, and write the module that teaches
-someone else how you did it — and be able to defend every decision in it, regardless of how the code
-got typed.
+By the end of this stage, you can set up your own workstation, sign in to AWS without static keys, and take one simple resource through the whole Terraform lifecycle — initialise, plan, apply, update and destroy — using your own terminal output and plans as the evidence, not a diagram from a slide. You can explain what Terraform is, what a provider is and why versions are pinned, and predict from a plan whether a change updates a resource in place or replaces it.
 
-## A note on AI-assisted development
+## Scope
 
-You're expected to use AI coding tools for this capstone — that's realistic, not cheating. The bar this
-sets is understanding, not output:
+You build up one small configuration file by file on your own machine, not a worked example. Find out, and write down in your own words:
 
-1. **You must be able to explain any part of your code on the spot**, without looking it up or asking
-   an AI tool again. During your demo, your trainer will pick a function or endpoint at random, ask you
-   to walk through what it does and why, and ask you to make a small change to it live, unassisted.
-2. **The design decisions are yours, not the tool's.** An AI tool can write an implementation; you decide
-   the resource shape, the relationship between resources, the concurrency approach, the endpoint
-   contract, the aggregate logic. If you can't explain *why* a decision was made, it isn't actually your
-   decision yet — go back and make it one.
-3. **Keep a short log of at least one moment an AI tool's first suggestion was wrong, inefficient, or
-   didn't fit your design**, and what you did instead. This is part of your write-up, not optional
-   color — catching and correcting a bad suggestion is the actual skill being assessed here, more than
-   the code that resulted.
-
-None of this means avoiding AI tools or second-guessing every line out of caution — it means treating
-suggested code the way you'd treat a teammate's pull request: read it, understand it, and be ready to
-defend keeping it.
-
-## Scope / topic rule (raised from a single resource)
-
-Default topic: extend your Stage 7 Tasks API into **two related resources** (e.g. Tasks + Projects, or
-Notes + Tags) with a real relationship between them — a one-to-many relationship is enough (e.g. a
-project has many tasks). A single resource with one bolt-on feature is no longer sufficient — AI tools
-make that too fast to be a meaningful test of design judgment. Propose your own topic if you prefer,
-under the same constraint: two related resources, approved by your trainer before you start building.
+- **Step 1 — The workstation (zero code)** — what Terraform is (declarative versus imperative), the core toolchain including a version manager, and keeping static access keys off disk; the environment and the mental model come before any editor. Research: what problem Terraform solves that a script or the cloud console does not and where you would not use it, how describing the desired state differs from scripting the steps, which install method fits each tool on each operating system and what each choice costs in maintenance and support, how a version manager keeps Terraform at the version you pinned, what fails differently on Windows than on macOS, how you prove you are connected to AWS without static keys, and what a scan for static keys has to look at and what it can miss.
+- **Step 2 — Dependencies: the `versions.tf` file** — what a provider is, version constraints, dependency management and the lock file, introduced before any infrastructure is written. Research: what Terraform downloads when you initialise and where it puts it, the difference between a version constraint you declare and what the lock file records, how loose or tight a provider constraint should be and who carries the risk of each choice, and what a reviewer should look for in a merge request that changes the lock file.
+- **Step 3 — Configuration: the `providers.tf` file** — provider concepts, how Terraform finds the AWS session you signed in with, and default tags, kept in a file of its own; checking syntax on a small, safe file before the configuration gets complex. Research: how the AWS provider decides which credentials to use and how you would prove which identity a plan is using, and why tags are set at the provider rather than on each resource and what would make you tag a resource individually anyway.
+- **Step 4 — Resources and planning: the `main.tf` file** — the anatomy of a resource (type, name, arguments and attributes), and plan review as a habit. Research: which parts of a resource you set and which Terraform reports back, what to check in a plan before you approve it, how you can tell from the plan alone what a change will do, and what you would do if a plan showed a destroy you did not expect.
+- **Step 5 — Apply and destroy** — in-place updates versus replacement, and destroying what you created. Research: which changes to your resource are made in place and which force replacement and how sure you are, what a replacement costs when the resource holds data or other resources depend on it, and how you confirm from the cloud side that everything is gone.
 
 ## Stack constraints
 
-Same as the rest of the course: Node.js 24 LTS, Express 5.x, Jest 30 with Supertest, ES Modules, JSON
-file persistence, Bruno. No databases, no Docker.
+- Everything under [Rules for every stage](../../README.md#rules-for-every-stage) applies.
+- You work on macOS or Windows, and your notes must serve a learner on either one.
+- If you own only one of the two operating systems, agree with your trainer how the other will be verified.
+- Terraform is 1.11 or later at the exact version in `versions.env`, and you use the Terraform CLI, not OpenTofu.
+- You install Terraform through a version manager, `tfenv` or `asdf`, on the platforms where one works, and say in your notes where neither does.
+- Your editor is Visual Studio Code with the HashiCorp Terraform extension, and the other tools the labs use are the AWS CLI, Git and `jq`; the labs' scripts are POSIX shell.
+- You sign in to AWS with IAM Identity Center through the AWS CLI, and you use no IAM user access keys and no long-lived credentials of any kind.
+- The AWS sandbox was provided before the course, so setting up or managing sandbox access, accounts, budgets or guardrails is not part of this stage.
+- You use AWS only, with one very simple resource, an `aws_ssm_parameter`, so that you focus on the workflow and not on AWS architecture.
+- State is local in this stage and is never committed, and you read the plan before every apply.
+- Look up what the resource bills before you apply, and destroy it at the end of the stage.
+- Variables and validation (M04), state and remote backends (M02), lifecycle controls that change replacement behaviour (M06), refactoring without replacement (M08), GCP and Azure (M09), and HCP Terraform, Terraform Stacks, Packer and Kubernetes providers are not part of this stage.
 
-## Requirements (all required — the former stretch goals are now part of the bar)
+## Deliverable
 
-- Express server with full CRUD for **both** resources, structured the same way as Stage 7
-  (routes/controllers/services).
-- The relationship between your two resources is **enforced, not decorative** — e.g. creating a child
-  resource under a parent that doesn't exist returns the right error, and you've made (and can defend)
-  an explicit decision about what happens to children when a parent is deleted.
-- **Search/filter via query parameters** on at least one list endpoint.
-- **Pagination** on at least one list endpoint.
-- **Request logging middleware.**
-- **One aggregate/computed endpoint that isn't plain CRUD** — something that reads across your data
-  rather than returning a single record or list unmodified (e.g. counts, groupings, a summary). This is
-  the one endpoint that can't be lifted wholesale from Stage 7 — it has to be designed.
-- Input validation and the shared error shape used since Stage 7, extended to cover relationship errors
-  (e.g. referencing a nonexistent parent).
-- JSON file persistence, carrying forward your Stage 7 thinking on concurrent writes and ID generation —
-  applied now across two resources. Decide explicitly whether they share a data file or use separate
-  ones, and be able to justify it.
-- Configuration via environment variables (`PORT`, data file path(s)).
-- **At least 10 meaningful automated tests** (Jest and Supertest, per Stage 8's definition of
-  "meaningful") — covering CRUD on both resources, the relationship's enforcement, the search/filter and
-  pagination behavior, and the aggregate endpoint. Tests that only cover the easy CRUD paths don't meet
-  this bar even if there are 10 of them.
-- A Bruno collection covering every endpoint.
-- A `README.md` with setup steps, available scripts, endpoint documentation, and your AI-collaboration
-  log (see `write-up-template.md`).
-- A clean Git history, in its own repository separate from your stage practice repo, committed in stages
-  as you build rather than as one giant commit at the end.
+**A configuration made of `versions.tf`, `providers.tf` and `main.tf` that manages one simple AWS resource, taken through create, in-place update and destroy from a workstation you set up yourself**, with a written plan-review note.
 
-### Stretch goals (optional, not scored)
+## Lab
 
-- Sorting via a query parameter.
-- Soft deletes instead of hard deletes.
-- A second aggregate endpoint.
+**Goal.** Take one simple AWS resource through the whole Terraform lifecycle, from an empty folder to a clean destroy, on a workstation you set up yourself.
 
-## Demo (raised bar)
+**You do, in the sandbox.**
 
-In addition to the existing demo components (app running, code structure, tests passing): your trainer
-will pick one or two places in your code at random and ask you to (a) explain what it does and why, and
-(b) make a small modification to it live, without AI assistance. This isn't a gotcha — it's the actual
-test of whether the capstone is yours.
+1. The workstation: install Terraform through a version manager (`tfenv` or `asdf`) and the AWS CLI, configure VS Code, sign in to AWS through IAM Identity Center, and prove the connection without static keys with `aws sts get-caller-identity` and `terraform -version`.
+2. Dependencies: create `versions.tf` with the required providers block, run `terraform init`, and watch the `.terraform` folder and the `.terraform.lock.hcl` file appear.
+3. Configuration: create `providers.tf` with the AWS provider and a default tags block, then run `terraform fmt` and `terraform validate`.
+4. Resources and planning: create `main.tf` with a single resource, run `terraform plan`, read the output, and check that the default tags from step 3 are attached to the resource in the plan.
+5. Apply and destroy: run `terraform apply`, change one attribute to trigger an update, run `terraform plan` and look for the in-place update, apply again, then run `terraform destroy`.
 
-## Rubric (fixed — do not deviate from this when self-assessing)
+**You build and capture.** The three files and the workstation are your deliverable. Capture the version output (including a switch between two Terraform versions), the caller-identity output, the scan for static keys, the files that `terraform init` created, the plan with the default tags on the resource, the plan that shows the in-place update, and the destroy confirmed from the cloud side.
 
-| Criteria | Excellent | Satisfactory | Needs work |
-| --- | --- | --- | --- |
-| Functionality | All CRUD + relationship + aggregate endpoints work correctly | Most endpoints work, relationship or aggregate has gaps | Major endpoints broken |
-| Code organization | Clear separation, readable code, relationship handled cleanly | Some structure | Everything in one file |
-| Error handling | Consistent, meaningful errors including relationship errors | Partial handling | Crashes on bad input |
-| Testing | 10+ meaningful tests covering relationship/search/pagination/aggregate | A few tests, easy paths only | No tests or failing |
-| Documentation | Clear README, Bruno collection, AI-collaboration log included | Basic README | Missing |
-| Understanding & defensibility | Explains any code confidently, modifies it live without issue | Explains most code, needs a hint to modify it | Can't explain code they didn't personally reason through |
-
-> **Note (Proposed, supersedes decision D8):** this replaces the original 5-criteria, equal-8%-each
-> split with 6 criteria. Confirm the per-criterion weighting with your program owner before scoring a
-> cohort against it — equal weighting (~6.67% each) is the default absent other direction.
+**Clean-up.** Destroy the resource and confirm from the cloud side that it is gone.
 
 ## Definition of done
 
-- From a clean clone: `npm install` and `npm start` run, every CRUD endpoint responds (both resources),
-  and `npm test` exits successfully. A capstone that doesn't meet this bar doesn't pass, regardless of
-  rubric score elsewhere.
-- The relationship between your two resources is enforced, and the aggregate endpoint returns correct,
-  non-trivial output.
-- Search/filter, pagination, and request logging all work as described above.
-- You pass the live code-walkthrough component of the demo — if you can't explain or modify code you
-  submitted, that part of the capstone doesn't count as done regardless of whether it runs.
+- DoD-01: Your notes show the actual Terraform version, installed through a version manager and switched between two versions (output pasted), and a caller-identity query from your own signed-in session (output pasted, account details redacted as the trainer directs), not the version or the identity you assumed you had.
+- DoD-02: Your notes show the scan you ran for static access keys on disk and in your repository, and what it looked for, not a statement that there are none.
+- DoD-03: `terraform init` created the `.terraform` folder and the `.terraform.lock.hcl` file from your own `versions.tf`, the lock file is committed (it appears in your commit), and your notes say in your own words what it recorded, not what the documentation says.
+- DoD-04: Formatting and validation pass with no errors on your `providers.tf` and `main.tf`, shown as pasted output, not described from memory.
+- DoD-05: Your plan output is pasted and read: it shows the default tags on your resource, and your plan-review note classifies every change you made as create, in-place update or replacement, and your trainer confirms each classification on review.
+- DoD-06: The plan before your one-attribute change shows an in-place update (output pasted), and after destroy nothing exists in the sandbox, confirmed from the cloud side, not only from Terraform's output.
+- DoD-07: Your write-up takes a first-time learner on either operating system from an empty folder to a destroyed resource unaided — verified by you following it end to end from a clean state.
 
-## What goes into the content library
+## Best practices this stage demonstrates
 
-Both your working repository and your `write-up-template.md` (filled in) are the deliverable — the
-write-up is what the next cohort's capstone brief and training content get built from. Write it as
-teaching material, not a retrospective.
+- Version managers for Terraform (tfenv/asdf)
+- Strict file compartmentalization (versions.tf, providers.tf)
+- No static credentials
+- Pinned versions, lock file
+- `default_tags`
+- fmt and validate
+- Plan review as a habit
 
 ## Still open / ask your trainer
 
-- The demo format for your cohort (format depends on cohort size — ask rather than assume).
-- The confirmed per-criterion rubric weighting (see note above).
-- Whether the two-resource relationship requirement should flex for a cohort running behind schedule —
-  ask before assuming a single-resource capstone is acceptable.
+- How the operating system you do not own will be verified.
+- Which details of the caller-identity output to redact before you paste it.
+- Whether your sandbox lets you create an SSM parameter in your account and region.
+- How much detail your notes need — confirm the expected length and depth with your trainer before you invest significant time.
