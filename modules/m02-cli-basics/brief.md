@@ -57,16 +57,16 @@ piped command, one thing that `man grep` or `grep --help` revealed, and the path
 
 ## Definition of done
 
-[ ] DoD-01: `practice.txt` exists on disk and the trainee's pasted `cat` output shows both lines (Lab
+- [ ] DoD-01: `practice.txt` exists on disk and the trainee's pasted `cat` output shows both lines (Lab
   steps 1–2). Re-running the documented commands reproduces the file.
-[ ] DoD-02: The trainee's notes state which line was written with `>` and which with `>>`, and what
+- [ ] DoD-02: The trainee's notes state which line was written with `>` and which with `>>`, and what
   would have been lost if `>` had been used for both (Lab step 1).
-[ ] DoD-03: The pasted output of `ls -l /etc | grep ".conf"` shows only matching entries, and the
+- [ ] DoD-03: The pasted output of `ls -l /etc | grep ".conf"` shows only matching entries, and the
   trainee can read the pipeline left to right as two steps: what `ls -l` produces and what `grep` keeps
   (Lab step 3).
-[ ] DoD-04: The notes show that the trainee opened both `man grep` and `grep --help`, and state
+- [ ] DoD-04: The notes show that the trainee opened both `man grep` and `grep --help`, and state
   something that one of them revealed which the trainee did not already know (Lab step 4).
-[ ] DoD-05: The notes show what Tab-completion did with the partial path `~/linux-cou` (Lab step 5).
+- [ ] DoD-05: The notes show what Tab-completion did with the partial path `~/linux-cou` (Lab step 5).
 
 ## Best practices this stage demonstrates
 

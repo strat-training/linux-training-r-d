@@ -57,13 +57,13 @@ appeared in the `tail -f` output, the `grep` result, and the contents of `notes.
 
 ## Definition of done
 
-[ ] DoD-01: The trainee's notes describe how `cat` and `less` behaved differently on `/etc/os-release`
+- [ ] DoD-01: The trainee's notes describe how `cat` and `less` behaved differently on `/etc/os-release`
   and when each would be chosen (Lab step 1).
-[ ] DoD-02: The pasted `tail -f` output shows the new line produced by the trainee's own
+- [ ] DoD-02: The pasted `tail -f` output shows the new line produced by the trainee's own
   `sudo apt update`, demonstrating that a file was followed as it grew and then stopped (Lab step 2).
-[ ] DoD-03: The `grep -i "error" /var/log/syslog` output contains only lines that match the pattern,
+- [ ] DoD-03: The `grep -i "error" /var/log/syslog` output contains only lines that match the pattern,
   with no manual trimming (Lab step 3).
-[ ] DoD-04: `notes.txt` exists with the two lines written in `nano`, and the pasted `cat` output
+- [ ] DoD-04: `notes.txt` exists with the two lines written in `nano`, and the pasted `cat` output
   confirms it from the command line (Lab steps 4–5).
 
 ## Best practices this stage demonstrates

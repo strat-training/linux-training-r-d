@@ -62,16 +62,16 @@ the trainee's own-words explanation of `750`.
 
 ## Definition of done
 
-[ ] DoD-01: The trainee's pasted `ls -l shared-report.txt` output before and after `chmod 600` shows the
+- [ ] DoD-01: The trainee's pasted `ls -l shared-report.txt` output before and after `chmod 600` shows the
   change, and the notes read the permission string for the owner, group, and other positions (Lab
   steps 1–2).
-[ ] DoD-02: The pasted `ls -l run.sh` output shows the execute bit set for the owner only, and the notes
+- [ ] DoD-02: The pasted `ls -l run.sh` output shows the execute bit set for the owner only, and the notes
   state what `u+x` changed and what it left alone (Lab step 3).
-[ ] DoD-03: The notes show that `sudo cat /etc/shadow` prompted for the trainee's own password rather
+- [ ] DoD-03: The notes show that `sudo cat /etc/shadow` prompted for the trainee's own password rather
   than a root password, with the password hashes redacted (Lab step 4).
-[ ] DoD-04: The trainee's own-words explanation of `750` was written before it was checked against the
+- [ ] DoD-04: The trainee's own-words explanation of `750` was written before it was checked against the
   Concepts section, and states what owner, group, and other can each do (Lab step 5).
-[ ] DoD-05: No step in the notes uses a blanket `777` "open everything" shortcut; every mode set is the
+- [ ] DoD-05: No step in the notes uses a blanket `777` "open everything" shortcut; every mode set is the
   least permissive one that still works.
 
 ## Best practices this stage demonstrates

@@ -56,16 +56,16 @@ from the command line, and remove the Python package cleanly.
 
 ## Definition of done
 
-[ ] DoD-01: The trainee's pasted `java -version` output shows the actual JDK version that `apt`
+- [ ] DoD-01: The trainee's pasted `java -version` output shows the actual JDK version that `apt`
   installed, taken from the command line and not assumed from the install log (Lab steps 1–2).
-[ ] DoD-02: The pasted `apt list --installed | grep jdk` output shows that the JDK is tracked by the
+- [ ] DoD-02: The pasted `apt list --installed | grep jdk` output shows that the JDK is tracked by the
   system package manager (Lab step 3).
-[ ] DoD-03: The pasted `pip show requests` output shows the Python package and its version, verified
+- [ ] DoD-03: The pasted `pip show requests` output shows the Python package and its version, verified
   separately from `apt`, and the notes state which package manager installed which piece and why that
   was the right one for that layer (Lab steps 1 and 4).
-[ ] DoD-04: The pasted `pip uninstall requests` output shows that the package was removed through the
+- [ ] DoD-04: The pasted `pip uninstall requests` output shows that the package was removed through the
   package manager and not by deleting files (Lab step 5).
-[ ] DoD-05: Using the version checks from steps 2 and 4, the trainee can explain what would need to be
+- [ ] DoD-05: Using the version checks from steps 2 and 4, the trainee can explain what would need to be
   true for an install to succeed silently but still be broken.
 
 ## Best practices this stage demonstrates
