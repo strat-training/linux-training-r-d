@@ -55,15 +55,15 @@ output of both commands, the four facts identified from it, and the explanation 
 
 ## Definition of done
 
-[ ] DoD-01: The trainee's notes show the raw, pasted output of `uname -a` and `cat /etc/os-release` from
+- [ ] DoD-01: The trainee's notes show the raw, pasted output of `uname -a` and `cat /etc/os-release` from
   the trainee's own terminal (Lab step 1), not facts copied from documentation or paraphrased from
   memory.
-[ ] DoD-02: From that output, the notes name the kernel version, the kernel architecture, the distro
+- [ ] DoD-02: From that output, the notes name the kernel version, the kernel architecture, the distro
   name, and the distro version, and show where in the output each one appears (Lab step 2).
-[ ] DoD-03: The notes explain in one or two sentences what would change in step 1's output if the
+- [ ] DoD-03: The notes explain in one or two sentences what would change in step 1's output if the
   trainee switched between the WSL2 and Virtual Machine paths, showing that kernel and distro are
   independent facts (Lab step 3).
-[ ] DoD-04: Using the output from steps 1–3 as evidence, the trainee can answer unprompted, "what
+- [ ] DoD-04: Using the output from steps 1–3 as evidence, the trainee can answer unprompted, "what
   happens between typing a command and seeing output?" This also serves as the course's self-check at
   the M1–M2 boundary.
 

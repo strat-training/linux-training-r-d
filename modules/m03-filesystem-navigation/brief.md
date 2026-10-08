@@ -60,15 +60,15 @@ output.
 
 ## Definition of done
 
-[ ] DoD-01: The trainee's pasted `pwd` output shows the location before and after `cd /var/log`, and
+- [ ] DoD-01: The trainee's pasted `pwd` output shows the location before and after `cd /var/log`, and
   that `cd ~` returned to the home directory (Lab step 1).
-[ ] DoD-02: The tree under `~/linux-course/m3` is at least three levels deep and was created with
+- [ ] DoD-02: The tree under `~/linux-course/m3` is at least three levels deep and was created with
   `mkdir -p`, without stepping into each new level one at a time. The pasted `ls -la` output shows it
   (Lab steps 2–3).
-[ ] DoD-03: The notes record how many results `find /etc -name "*.conf"` returned, taken from the
+- [ ] DoD-03: The notes record how many results `find /etc -name "*.conf"` returned, taken from the
   trainee's own output, and show that files were located by search rather than by visual browsing (Lab
   step 4).
-[ ] DoD-04: `ls ../processed` ran from `~/linux-course/m3/data/raw` using a relative path, and the
+- [ ] DoD-04: `ls ../processed` ran from `~/linux-course/m3/data/raw` using a relative path, and the
   trainee can state the absolute path of `processed` without running a command to check (Lab step 5).
 
 ## Best practices this stage demonstrates
